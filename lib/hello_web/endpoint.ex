@@ -1,5 +1,5 @@
 defmodule HelloWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :hello
+  use Desktop.Endpoint, otp_app: :hello
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.

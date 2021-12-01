@@ -15,7 +15,7 @@ defmodule Hello do
     Desktop.identify_default_locale(HelloWeb.Gettext)
 
     {:ok, sup} = Supervisor.start_link([], name: __MODULE__, strategy: :one_for_one)
-    {:ok, _} = Supervisor.start_child(sup, TodoWeb.Sup)
+    {:ok, _} = Supervisor.start_child(sup, HelloWeb.Sup)
 
     {:ok, _} =
       Supervisor.start_child(sup, {
