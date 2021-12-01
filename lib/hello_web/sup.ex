@@ -12,7 +12,7 @@ defmodule HelloWeb.Sup do
   def init([]) do
     children = [
       {Phoenix.PubSub, name: Hello.PubSub},
-      TodoWeb.Endpoint
+      HelloWeb.Endpoint
     ]
 
     :session = :ets.new(:session, [:named_table, :public, read_concurrency: true])

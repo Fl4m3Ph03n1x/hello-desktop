@@ -9,10 +9,11 @@ import Config
 
 # Configures the endpoint
 config :hello, HelloWeb.Endpoint,
-  url: [host: "localhost"],
+  http: [ip: {127, 0, 0, 1}, port: 0],
   render_errors: [view: HelloWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Hello.PubSub,
-  live_view: [signing_salt: "enrmzjCf"]
+  live_view: [signing_salt: "enrmzjCf"],
+  server: true
 
 # Configures the mailer
 #

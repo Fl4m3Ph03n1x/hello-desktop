@@ -7,15 +7,27 @@ defmodule Hello.Application do
 
   @impl true
   def start(_type, _args) do
+    Desktop.identify_default_locale(HelloWeb.Gettext)
+
     children = [
       # Start the Telemetry supervisor
       HelloWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Hello.PubSub},
       # Start the Endpoint (http/https)
-      HelloWeb.Endpoint
+      HelloWeb.Endpoint,
       # Start a worker by calling: Hello.Worker.start_link(arg)
       # {Hello.Worker, arg}
+      {Desktop.Window,
+       [
+         app: :hello,
+         id: HelloWindow,
+         title: "Hello",
+         size: {600, 500},
+         menubar: Hello.MenuBar,
+         icon_menu: Hello.Menu,
+         url: &HelloWeb.Endpoint.url/0
+       ]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
