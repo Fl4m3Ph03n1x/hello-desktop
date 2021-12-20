@@ -7,7 +7,7 @@ defmodule Hello.MenuBar do
   use Desktop.Menu
   alias Desktop.Window
 
-  def render(assigns) do
+  def render(_assigns) do
     ~E"""
     <menubar>
     <menu label="<%= gettext "File" %>">

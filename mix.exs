@@ -10,7 +10,13 @@ defmodule Hello.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: [
+        hello: [
+          include_executables_for: [:windows],
+          applications: [runtime_tools: :permanent]
+        ]
+      ]
     ]
   end
 
