@@ -9,14 +9,8 @@ defmodule Hello.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
-      aliases: aliases(),
       deps: deps(),
-      releases: [
-        hello: [
-          include_executables_for: [:windows],
-          applications: [runtime_tools: :permanent]
-        ]
-      ]
+      releases: releases()
     ]
   end
 
@@ -54,20 +48,17 @@ defmodule Hello.MixProject do
       {:plug_cowboy, "~> 2.5"},
 
       {:desktop, github: "elixir-desktop/desktop", tag: "v1.3.1"},
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 
-  # Aliases are shortcuts or tasks specific to the current project.
-  # For example, to install project dependencies and perform other setup tasks, run:
-  #
-  #     $ mix setup
-  #
-  # See the documentation for `Mix` for more info on aliases.
-  defp aliases do
+  def releases do
     [
-      setup: ["deps.get"],
-      "assets.deploy": ["esbuild default --minify", "phx.digest"]
+      hello: [
+        include_executables_for: [:windows],
+        applications: [runtime_tools: :permanent]
+      ]
     ]
   end
+
 end
