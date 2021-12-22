@@ -8,6 +8,7 @@ defmodule Hello do
   """
   use Application
   require Logger
+  alias Desktop
 
   @app Mix.Project.config()[:app]
 
