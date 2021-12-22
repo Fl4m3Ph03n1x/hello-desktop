@@ -13,7 +13,8 @@ config :hello, HelloWeb.Endpoint,
   render_errors: [view: HelloWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Hello.PubSub,
   live_view: [signing_salt: "enrmzjCf"],
-  server: true
+  server: true,
+  secret_key_base: "+2Rtbyvc4jOvYOZ14iSxsvXg2Pv6zPunRhTrqN1MnT+d7VvXu2KlJOoJiHDH5Q8T"
 
 # Configures the mailer
 #
